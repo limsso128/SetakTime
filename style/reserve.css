@@ -86,7 +86,7 @@ header {
   width: 90%;
   max-width: 1000px;
   display: flex;
-  gap: 60px;
+  gap: 25px; /* 시간과 세탁기 칸 사이의 간격을 줄였습니다. */
   padding: 40px;
   background: var(--bg-glass);
   backdrop-filter: blur(18px);
@@ -96,12 +96,13 @@ header {
 }
 
 /* ------------------ DATE / TIME COLUMN ------------------ */
+/* 시간 영역 컨테이너 */
 .date-time-col {
   flex: 0.4;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 24px; /* 시간 항목들 사이의 세로 간격 */
 }
 
 #day {
@@ -111,8 +112,9 @@ header {
   margin-bottom: 12px;
 }
 
+/* 시간 스타일 */
 .time {
-  width: 130px; /* 너비 조정 */
+  width: 150px;
   height: 70px; /* 높이를 slot과 동일하게 고정 */
   text-align: center;
   padding: 0; /* 패딩 제거 */
@@ -127,13 +129,6 @@ header {
   display: flex; /* 내부 텍스트 중앙 정렬을 위해 추가 */
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
-}
-
-.time:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(180deg, #e8f3ff, #ffffff);
-  border-color: var(--main-blue);
-  box-shadow: 0 6px 18px rgba(49, 99, 180, 0.2);
 }
 
 /* ------------------ MACHINE AREA ------------------ */
@@ -164,14 +159,16 @@ header {
 .slots-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px 26px; /* 행 간격을 date-time-col과 동일하게 맞춤 */
+  /* 행 간격을 .date-time-col의 gap과 동일하게, 열 간격은 적절히 설정 */
+  gap: 24px 26px; 
   justify-items: center;
   margin-top: 10px;
 }
 
+/* 슬롯 스타일 */
 .slot {
   width: 150px;
-  height: 70px;
+  height: 70px; /* 높이를 .time과 동일하게 고정 */
   background: rgba(255, 255, 255, 0.7);
   border: 1.5px solid rgba(49, 99, 180, 0.15);
   border-radius: 16px;
@@ -243,8 +240,5 @@ header {
   .main-container {
     flex-direction: column;
     gap: 30px;
-  }
-  .slots-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }

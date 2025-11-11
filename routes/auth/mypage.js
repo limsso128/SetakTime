@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (reservations.length === 0) {
                 noReservationsMessage.style.display = 'block'; // 예약이 없으면 메시지 표시
+                reservationsList.innerHTML = ''; // 목록도 비워줍니다.
             } else {
                 reservationsList.innerHTML = ''; // 목록 초기화
                 reservations.forEach(res => {
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     `;
                     reservationsList.appendChild(listItem);
                 });
+                noReservationsMessage.style.display = 'none'; // 예약이 있으면 메시지 숨김
 
                 // 생성된 취소 버튼들에 이벤트 리스너 추가
                 document.querySelectorAll('.cancel-btn').forEach(button => {
